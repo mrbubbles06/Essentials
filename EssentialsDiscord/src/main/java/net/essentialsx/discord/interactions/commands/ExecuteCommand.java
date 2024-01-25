@@ -14,7 +14,7 @@ import static com.earth2me.essentials.I18n.tl;
 
 public class ExecuteCommand extends InteractionCommandImpl {
     public ExecuteCommand(JDADiscordService jda) {
-        super(jda, "execute", tl("discordCommandExecuteDescription"));
+        super(jda, jda.getSettings().getCommandName("execute"), tl("discordCommandExecuteDescription"));
         addArgument(new InteractionCommandArgument("command", tl("discordCommandExecuteArgumentCommand"), InteractionCommandArgumentType.STRING, true));
     }
 

@@ -181,6 +181,11 @@ commands:
     # Set to false if you do not want this command to show up on the Discord command selector.
     # You must restart your server after changing this.
     enabled: true
+    # What the name of the command should be on the Discord command selector
+    # This string should only contain alphanumeric characters, dashes, or underscores.
+    # (0-9, a-z, -, _)
+    # Ex. "execute", "exe", "run-cmd", "execute_cmd"
+    command-name: "execute"
     # Whether or not the command should be hidden from other people in the channel.
     # If set to false, members of the Discord guild will be able to see the exact command you executed as well as its response.
     hide-command: true
@@ -193,6 +198,11 @@ commands:
     # Set to false if you do not want this command to show up on the Discord command selector.
     # You must restart your server after changing this.
     enabled: true
+    # What the name of the command should be on the Discord command selector
+    # This string should only contain alphanumeric characters, dashes, or underscores.
+    # (0-9, a-z, -, _)
+    # Ex. "whisper", "msg", "message", "w"
+    command-name: "whisper"
     # Whether or not the command should be hidden from other people in the channel.
     # If set to false, members of the Discord guild will be able to see the target and content of your message.
     hide-command: true
@@ -210,6 +220,11 @@ commands:
     # Set to false if you do not want this command to show up on the Discord command selector.
     # You must restart your server after changing this.
     enabled: true
+    # What the name of the command should be on the Discord command selector
+    # This string should only contain alphanumeric characters, dashes, or underscores.
+    # (0-9, a-z, -, _)
+    # Ex. "list", "l", "list-players", "list_online"
+    command-name: "list"
     # Whether or not the command should be hidden from other people in the channel.
     # If set to false, members of the Discord guild will be able to see when you use this command as well as its response.
     hide-command: true

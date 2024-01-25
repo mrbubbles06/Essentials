@@ -19,7 +19,7 @@ import static com.earth2me.essentials.I18n.tl;
 public class ListCommand extends InteractionCommandImpl {
 
     public ListCommand(JDADiscordService jda) {
-        super(jda, "list", tl("discordCommandListDescription"));
+        super(jda, jda.getSettings().getCommandName("list"), tl("discordCommandListDescription"));
         addArgument(new InteractionCommandArgument("group", tl("discordCommandListArgumentGroup"), InteractionCommandArgumentType.STRING, false));
     }
 

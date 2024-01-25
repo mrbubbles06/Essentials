@@ -18,12 +18,16 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 import static com.earth2me.essentials.I18n.tl;
 
 public class DiscordSettings implements IConf {
+    private final Logger logger = EssentialsDiscord.getWrappedLogger();
+
     private final EssentialsConfiguration config;
     private final EssentialsDiscord plugin;
 
@@ -215,6 +219,19 @@ public class DiscordSettings implements IConf {
 
     public boolean isCommandEnabled(String command) {
         return config.getBoolean("commands." + command + ".enabled", true);
+    }
+
+    public String getCommandName(String command) {
+        final String path = "commands." + command + ".command-name";
+        final String commandName = config.getString(path, command).trim().toLowerCase();
+        final String regex = "^[-_\\p{L}\\p{N}\\p{sc=Deva}\\p{sc=Thai}]{1,32}$";
+        final Pattern pattern = Pattern.compile(regex);
+        final Matcher matcher = pattern.matcher(commandName);
+        if (!matcher.matches()) {
+            logger.warning("Invalid command name \"" + commandName + "\" for command \"" + command + "\". Using default.");
+            return command;
+        }
+        return commandName;
     }
 
     public boolean isCommandEphemeral(String command) {

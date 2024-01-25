@@ -18,7 +18,7 @@ import static com.earth2me.essentials.I18n.tl;
 
 public class MessageCommand extends InteractionCommandImpl {
     public MessageCommand(JDADiscordService jda) {
-        super(jda, "msg", tl("discordCommandMessageDescription"));
+        super(jda, jda.getSettings().getCommandName("msg"), tl("discordCommandMessageDescription"));
         addArgument(new InteractionCommandArgument("username", tl("discordCommandMessageArgumentUsername"), InteractionCommandArgumentType.STRING, true));
         addArgument(new InteractionCommandArgument("message", tl("discordCommandMessageArgumentMessage"), InteractionCommandArgumentType.STRING, true));
     }
